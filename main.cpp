@@ -1,8 +1,7 @@
-//
-// Created by Lakshya Mittal on 17-12-2021.
-//
+
 
 #include <bits/stdc++.h>
+using namespace std;
 //#include "Model/RubiksCube3dArray.cpp"
 //#include "Model/RubiksCube1dArray.cpp"
 //#include "Model/RubiksCubeBitboard.cpp"
@@ -265,14 +264,19 @@ int main() {
 
 
 // CornerDBMaker Testing --------------------------------------------------------------------------
-    string fileName = "C:\\Users\\user\\CLionProjects\\rubiks-cube-solver\\Databases\\cornerDepth5V1.txt";
+    string fileName = "C:\\Users\\sksal\\OneDrive\\Desktop\\rbs\\Rubics_Cube_Solver_\\my_txt_file.txt";
 
 //    Code to create Corner Database
-//    CornerDBMaker dbMaker(fileName, 0x99);
-//    dbMaker.bfsAndStore();
+   CornerDBMaker dbMaker(fileName, 0x99);
+   dbMaker.bfsAndStore();
 
     RubiksCubeBitboard cube;
+   // int user_shuffle ;
+    cout<<"Enter No of shuffle You want :"<<endl;
+   // cin>>user_shuffle;
+
     auto shuffleMoves = cube.randomShuffleCube(13);
+    //auto shuffleMoves= cube.randomShuffleCube(user_shuffle);
     cube.print();
     for (auto move: shuffleMoves) cout << cube.getMove(move) << " ";
     cout << "\n";

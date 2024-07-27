@@ -1,6 +1,4 @@
-//
-// Created by Lakshya Mittal on 17-02-2022.
-//
+
 
 #ifndef RUBIKS_CUBE_SOLVER_PATTERNDATABASE_H
 #define RUBIKS_CUBE_SOLVER_PATTERNDATABASE_H
@@ -20,8 +18,12 @@ class PatternDatabase {
     PatternDatabase();
 
 public:
+//constructor1
     PatternDatabase(const size_t size);
 //    Testing for init_val
+
+//constructor2
+
     PatternDatabase(const size_t size, uint8_t init_val);
 
     virtual uint32_t getDatabaseIndex(const RubiksCube &cube) const = 0;

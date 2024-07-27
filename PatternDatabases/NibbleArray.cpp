@@ -1,6 +1,4 @@
-//
-// Created by Lakshya Mittal on 17-02-2022.
-//
+
 
 #include "NibbleArray.h"
 
@@ -16,7 +14,7 @@ uint8_t NibbleArray::get(const size_t pos) const {
     uint8_t val = this->arr.at(i);
 
 //    Odd pos: last 4 bits
-    if (pos % 2) {
+    if (pos % 2) {  
         return val & 0x0F;
     }
 //    Even pos: first 4 bits from the left

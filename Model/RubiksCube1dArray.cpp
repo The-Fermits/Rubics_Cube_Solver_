@@ -1,6 +1,4 @@
-//
-// Created by Lakshya Mittal on 22-12-2021.
-//
+
 
 #include "RubiksCube.h"
 
@@ -18,9 +16,11 @@ private:
         char temp_arr[9] = {};
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
+                // temperory store 
                 temp_arr[i * 3 + j] = cube[getIndex(ind, i, j)];
             }
         }
+        
         for (int i = 0; i < 3; i++) cube[getIndex(ind, 0, i)] = temp_arr[getIndex(0, 2 - i, 0)];
         for (int i = 0; i < 3; i++) cube[getIndex(ind, i, 2)] = temp_arr[getIndex(0, 0, i)];
         for (int i = 0; i < 3; i++) cube[getIndex(ind, 2, 2 - i)] = temp_arr[getIndex(0, i, 2)];
@@ -28,6 +28,7 @@ private:
     }
 
 public:
+
     char cube[54]{};
 
     RubiksCube1dArray() {
@@ -238,6 +239,7 @@ public:
         return *this;
     }
 
+////////////////////////////////////////////////////////////////////
     bool operator==(const RubiksCube1dArray &r1) const {
         for (int i = 0; i < 54; i++) {
             if (cube[i] != r1.cube[i]) return false;
@@ -254,6 +256,7 @@ public:
 
 };
 
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 struct Hash1d {
     size_t operator()(const RubiksCube1dArray &r1) const {
         string str = "";

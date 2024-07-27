@@ -1,6 +1,4 @@
-//
-// Created by Shubham Patil on 17/12/21.
-//
+
 
 #ifndef RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
 #define RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H
@@ -19,16 +17,16 @@ using namespace std;
 class RubiksCube {
 public:
     enum class FACE {
-        UP,
-        LEFT,
-        FRONT,
+        UP,//0
+        LEFT,//1
+        FRONT,//2
         RIGHT,
         BACK,
         DOWN
     };
 
     enum class COLOR {
-        WHITE,
+        WHITE,//0
         GREEN,
         RED,
         BLUE,
@@ -46,23 +44,22 @@ public:
     };
 
     /*
-     * Returns the color of the cell at (row, col) in face.
-     * If Rubik's Cube face is pointing at you, then the row numbering starts from the
-     * top to bottom, and column numbering starts from the left to right.
-     * The rows and columns are 0-indexed.
-     * @param Face, row, and column index
+    representation
+     0 1 2
+     3 4 5
+     6 7 8
      */
+
     virtual COLOR getColor(FACE face, unsigned row, unsigned col) const = 0;
 
     /*
+    * static getcolorletter
      * Returns the first letter of the given COLOR
      * Eg: For COLOR::GREEN, it returns 'G'
      */
     static char getColorLetter(COLOR color);
 
-    /*
-     * Returns true if the Rubik Cube is solved, otherwise returns false.
-     */
+    
     virtual bool isSolved() const = 0;
 
     /*
@@ -140,7 +137,7 @@ public:
      * B, B’, B2
      */
 
-    virtual RubiksCube &f() = 0;
+    virtual RubiksCube &f() = 0; // pure virtual function
 
     virtual RubiksCube &fPrime() = 0;
 
@@ -178,10 +175,10 @@ public:
 
     string getCornerColorString(uint8_t ind) const;
 
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     uint8_t getCornerIndex(uint8_t ind) const;
-
     uint8_t getCornerOrientation(uint8_t ind) const;
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 };
-
 
 #endif //RUBIKS_CUBE_SOLVER_RUBIKSCUBE_H

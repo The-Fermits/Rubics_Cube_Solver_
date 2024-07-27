@@ -1,6 +1,3 @@
-//
-// Created by Shubham Patil on 17/12/21.
-//
 
 #include "RubiksCube.h"
 
@@ -26,7 +23,7 @@ char RubiksCube::getColorLetter(COLOR color) {
 }
 
 /*
- * Describe a move using an index
+ * return a char for indexes 
  */
 string RubiksCube::getMove(MOVE ind) {
     switch (ind) {
@@ -69,8 +66,9 @@ string RubiksCube::getMove(MOVE ind) {
     }
 }
 
+
 /*
- * Perform a move operation on using a Move index.
+ * move returns a pointer point to class
  */
 RubiksCube &RubiksCube::move(MOVE ind) {
     switch (ind) {
@@ -112,6 +110,7 @@ RubiksCube &RubiksCube::move(MOVE ind) {
             return this->b2();
     }
 }
+
 
 /*
  * Invert a move.
@@ -157,12 +156,13 @@ RubiksCube &RubiksCube::invert(MOVE ind) {
     }
 }
 
-void RubiksCube::print() const {
-    cout << "Rubik's Cube:\n\n";
 
-    for (int row = 0; row <= 2; row++) {
+void RubiksCube::print() const {
+    cout << " i am printing my Rubik's Cube:<<endl<<endl";
+
+    for (int row = 0; row <3; row++) {
         for (unsigned i = 0; i < 7; i++) cout << " ";
-        for (int col = 0; col <= 2; col++) {
+        for (int col = 0; col < 3; col++) {
             cout << getColorLetter(getColor(FACE::UP, row, col)) << " ";
         }
         cout << "\n";
@@ -170,9 +170,9 @@ void RubiksCube::print() const {
 
     cout << "\n";
 
-    for (int row = 0; row <= 2; row++) {
+    for (int row = 0; row < 3; row++) {
 
-        for (int col = 0; col <= 2; col++) {
+        for (int col = 0; col < 3; col++) {
             cout << getColorLetter(getColor(FACE::LEFT, row, col)) << " ";
         }
         cout << " ";
@@ -205,17 +205,20 @@ void RubiksCube::print() const {
     cout << "\n";
 }
 
+
 vector<RubiksCube::MOVE> RubiksCube::randomShuffleCube(unsigned int times) {
-    vector<MOVE> moves_performed;
+    vector<MOVE> cur_moves;
     srand(time(0));
     for (unsigned int i = 0; i < times; i++) {
         unsigned int selectMove = (rand() % 18);
-        moves_performed.push_back(static_cast<MOVE>(selectMove));
+        cur_moves.push_back(static_cast<MOVE>(selectMove));
         this->move(static_cast<MOVE>(selectMove));
     }
-    return moves_performed;
+    return cur_moves;
 }
 
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //Helper function returns string of corner
 string RubiksCube::getCornerColorString(uint8_t ind) const {
     string str = "";

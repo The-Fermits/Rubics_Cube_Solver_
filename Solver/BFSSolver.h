@@ -1,6 +1,3 @@
-//
-// Created by Lakshya Mittal on 04-01-2022.
-//
 
 #include<bits/stdc++.h>
 #include "../Model/RubiksCube.h"
@@ -24,6 +21,7 @@ private:
         queue<T> q;
         q.push(rubiksCube);
         visited[rubiksCube] = true;
+        
 
         while (!q.empty()) {
             T node = q.front();
@@ -53,6 +51,7 @@ public:
     }
 
 //    Performs BFS and returns the vector of moves done to solve the cube
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     vector<RubiksCube::MOVE> solve() {
         T solved_cube = bfs();
         assert(solved_cube.isSolved());
@@ -67,5 +66,6 @@ public:
         return moves;
     }
 };
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 #endif //RUBIKS_CUBE_SOLVER_BFSSOLVER_H

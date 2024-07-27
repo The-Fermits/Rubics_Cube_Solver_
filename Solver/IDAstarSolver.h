@@ -1,6 +1,3 @@
-//
-// Created by Lakshya Mittal on 01-02-2022.
-//
 
 #include<bits/stdc++.h>
 #include "../Model/RubiksCube.h"
@@ -11,6 +8,7 @@
 #define RUBIKS_CUBE_SOLVER_IDASTARSOLVER_H
 
 template<typename T, typename H>
+
 class IDAstarSolver {
 private:
     CornerPatternDatabase cornerDB;

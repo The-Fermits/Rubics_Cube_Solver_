@@ -1,8 +1,5 @@
-//
-// Created by Lakshya Mittal on 17-12-2021.
-//
-
 #include "RubiksCube.h"
+
 
 class RubiksCube3dArray : public RubiksCube {
 private:
@@ -252,6 +249,8 @@ public:
         return *this;
     }
 };
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 struct Hash3d {
     size_t operator()(const RubiksCube3dArray &r1) const {
